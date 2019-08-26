@@ -40,7 +40,7 @@ class CalculatePresenterTest {
     @Test fun loadKeyboardTest() {
         //Data : 데이터
         val dummy: SelectKeyboardJoinKeyAll = SelectKeyboardJoinKeyAll(1, 5).apply {
-            keys = listOf(Key(1, 1, "CE", 0))
+            keys = listOf(Key(1, 1, "CE", "ce", 0))
         }
 
         //Given : 상황(Case)
