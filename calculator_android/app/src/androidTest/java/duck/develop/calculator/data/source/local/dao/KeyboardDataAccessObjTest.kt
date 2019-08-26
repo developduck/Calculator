@@ -45,7 +45,7 @@ class KeyboardDataAccessObjTest: KoinTest {
 
     @Throws(Exception::class)
     @Test fun basicKeyDataAccess() {
-        val key = Key(1, 1, "CE", 0)
+        val key = Key(1, 1, "CE", "ce", 0, "flat_symbol")
 
         keyDao.insert(key)
         keyDao.getKey(key.id)
@@ -60,7 +60,7 @@ class KeyboardDataAccessObjTest: KoinTest {
     }
     @Throws(Exception::class)
     @Test fun getKeyListDataAccess() {
-        val key = Key(1, 1, "CE", 0)
+        val key = Key(1, 1, "CE", "ce", 0)
         val keys = ArrayList(listOf(key.copy(id = 2, order = 6), key.copy(id = 3, order = 5), key))
 
         keyDao.insert(keys)
@@ -83,7 +83,7 @@ class KeyboardDataAccessObjTest: KoinTest {
     @Test fun getKeyboardJoinKeyListDataAccess() {
         val keys = ArrayList<Key>()
         for (i in 1 until 10) {
-            keys.add(Key(i, 1, "Key$i", i))
+            keys.add(Key(i, 1, "Key$i", "number", i))
         }
         keyDao.insert(keys)
         keyboardDao.getKeyboardJoinKeyAll(1)
@@ -97,7 +97,7 @@ class KeyboardDataAccessObjTest: KoinTest {
     @Test fun checkForeignKeyConstraintOnKeyEntities() {
         val keys = ArrayList<Key>()
         for (i in 1 until 10) {
-            keys.add(Key(i, 1, "Key$i", i))
+            keys.add(Key(i, 1, "Key$i", "number", i))
         }
         keyDao.insert(keys)
         keyboardDao.getKeyboards()
