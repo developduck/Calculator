@@ -49,12 +49,6 @@ class CalculateFragment: DefaultFragment(), CalculateContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.attach(this)
-        txt_result.textChanges()
-            .subscribe {
-
-            }.let {
-                disposable.add(it)
-            }
     }
     override fun onDestroy() {
         super.onDestroy()
